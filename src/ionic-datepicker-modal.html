@@ -6,6 +6,11 @@
                 ng-click="closeIonicDatePickerModal()">{{mainObj.closeLabel}}
         </button>
     </div>
+    <div class="div-set">
+        <button class="modal_set"
+                ng-click="setIonicDatePickerDate()">{{mainObj.setLabel}}
+        </button>
+    </div>
   </ion-header-bar>
   <ion-content class="ionic_datepicker_modal_content">
     <div class="">
@@ -66,10 +71,11 @@
             </div>
           </div>
         </div>
-        <div ng-show="mainObj.showTodayButton && !mainObj.datetime" class="today_div">
-            <button type="button" ng-click="set2today();">{{mainObj.todayLabel}}</button>
-        </div>
       </div>
+    </div>
+
+    <div ng-show="mainObj.showTodayButton && !mainObj.datetime" class="today_div">
+        <button type="button" ng-click="set2today();">{{mainObj.todayLabel}}</button>
     </div>
 
     <div class="row padding_zero">

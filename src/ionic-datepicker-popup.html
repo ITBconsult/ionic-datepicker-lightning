@@ -1,8 +1,15 @@
 <!-- <div class="selected_date_full">{{selctedDateEpoch | date : mainObj.dateFormat}}</div> -->
 <div class="selected_date_full">
-    <button class="popup_close"
-        ng-click="closeIonicDatePickerPopup()">{{mainObj.closeLabel}}
-    </button>
+    <div class="div-cancel">
+        <button class="popup_close"
+            ng-click="closeIonicDatePickerPopup()">{{mainObj.closeLabel}}
+        </button>
+    </div>
+    <div class="div-set">
+        <button class="popup_set"
+            ng-click="setIonicDatePickerDate()">{{mainObj.setLabel}}
+        </button>
+    </div>
 </div>
 
 <div class="date_selection">
