@@ -104,7 +104,6 @@ angular.module('ionic-datepicker.provider', []).provider('ionicDatePicker', func
             $scope.time.hours = $scope.time.hours.toFixed(0);
             $scope.time.minutes = $scope.time.minutes.toFixed(0);
 
-
             if ($scope.time.hours.toString().length == 1) {
                 $scope.time.hours = '0' + $scope.time.hours;
             }
@@ -140,7 +139,9 @@ angular.module('ionic-datepicker.provider', []).provider('ionicDatePicker', func
         //Date selected
         $scope.dateSelected = function(selectedDate) {
             if (!selectedDate || Object.keys(selectedDate).length === 0) return;
+            var resultTime = 0;
             $scope.selctedDateEpoch = selectedDate.epoch;
+            resultTime += $scope.selctedDateEpoch;
 
             // add datetime seconds
             if ($scope.mainObj.datetime) {
@@ -155,11 +156,11 @@ angular.module('ionic-datepicker.provider', []).provider('ionicDatePicker', func
                     totalSec = ($scope.time.hours * 60 * 60) + ($scope.time.minutes * 60);
                 }
 
-                $scope.selctedDateEpoch += totalSec * 1000;
+                resultTime += totalSec * 1000;
             }
 
             if ($scope.mainObj.closeOnSelect) {
-                $scope.mainObj.callback($scope.selctedDateEpoch);
+                $scope.mainObj.callback(resultTime);
                 if ($scope.mainObj.templateType.toLowerCase() == 'popup') {
                     $scope.popup.close();
                 } else {
@@ -173,6 +174,8 @@ angular.module('ionic-datepicker.provider', []).provider('ionicDatePicker', func
             var today = new Date();
             refreshDateList(new Date());
             $scope.selctedDateEpoch = resetHMSM(today).getTime();
+            var resultTime = 0;
+            resultTime += $scope.selctedDateEpoch;
 
             // add datetime seconds
             if ($scope.mainObj.datetime) {
@@ -187,11 +190,11 @@ angular.module('ionic-datepicker.provider', []).provider('ionicDatePicker', func
                     totalSec = ($scope.time.hours * 60 * 60) + ($scope.time.minutes * 60);
                 }
 
-                $scope.selctedDateEpoch += totalSec * 1000;
+                resultTime += totalSec * 1000;
             }
 
             if ($scope.mainObj.closeOnSelect) {
-                $scope.mainObj.callback($scope.selctedDateEpoch);
+                $scope.mainObj.callback(resultTime);
                 closeModal();
             }
         };
@@ -199,6 +202,7 @@ angular.module('ionic-datepicker.provider', []).provider('ionicDatePicker', func
         //Set date for the modal
         $scope.setIonicDatePickerDate = function() {
             // add datetime seconds
+            var resultTime = 0;
             if ($scope.mainObj.datetime) {
                 var totalSec = 0;
                 if ($scope.time.format == 12) {
@@ -211,10 +215,10 @@ angular.module('ionic-datepicker.provider', []).provider('ionicDatePicker', func
                     totalSec = ($scope.time.hours * 60 * 60) + ($scope.time.minutes * 60);
                 }
 
-                $scope.selctedDateEpoch += totalSec * 1000;
+                resultTime += totalSec * 1000;
             }
 
-            $scope.mainObj.callback($scope.selctedDateEpoch);
+            $scope.mainObj.callback(resultTime);
             closeModal();
         };
 
