@@ -88,7 +88,7 @@ angular.module('ionic-datepicker.provider', []).provider('ionicDatePicker', func
         };
 
         function setMinSecs(ipTime, format) {
-            $scope.time.hours = ipTime / (60 * 60);
+            $scope.time.hours = Math.floor(ipTime / (60 * 60));
 
             var rem = ipTime % (60 * 60);
             if (format == 12) {
@@ -103,6 +103,7 @@ angular.module('ionic-datepicker.provider', []).provider('ionicDatePicker', func
 
             $scope.time.hours = $scope.time.hours.toFixed(0);
             $scope.time.minutes = $scope.time.minutes.toFixed(0);
+
 
             if ($scope.time.hours.toString().length == 1) {
                 $scope.time.hours = '0' + $scope.time.hours;
