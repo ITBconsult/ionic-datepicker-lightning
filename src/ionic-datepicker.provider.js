@@ -342,23 +342,30 @@ angular.module('ionic-datepicker.provider', []).provider('ionicDatePicker', func
             setDisabledDates($scope.mainObj);
         }
 
-        $ionicModal.fromTemplateUrl('ionic-datepicker-modal.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function(modal) {
-            $scope.modal = modal;
-        });
-
         $scope.$on('$destroy', function() {
             $scope.modal.remove();
         });
 
         function openModal() {
-            $scope.modal.show();
+            if ($scope.modal) {
+                $scope.modal.show();
+            } else {
+                $ionicModal.fromTemplateUrl('ionic-datepicker-modal.html', {
+                    scope: $scope,
+                    animation: 'slide-in-up'
+                }).then(function(modal) {
+                    $scope.modal = modal;
+                    $scope.modal.show();
+                });
+            }
         }
 
         function closeModal() {
-            $scope.modal.hide();
+            if ($scope.modal) {
+                $scope.modal.hide();
+                $scope.modal.remove();
+                $scope.modal = null;
+            }
         }
 
         $scope.closeIonicDatePickerModal = function() {
