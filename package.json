@@ -1,6 +1,6 @@
 {
   "name": "ionic-datepicker-sfdc",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "description": "A date picker for ionic framework",
   "main": [
     "./dist/ionic-datepicker.bundle.min.js"

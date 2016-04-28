@@ -1,6 +1,6 @@
 {
   "name": "ionic-datepicker-sfdc",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "authors": [
     "simon xiao <shawn.lnd.sp@gmail.com>"
   ],
@@ -10,7 +10,7 @@
   ],
   "keywords": [
     "ionic-datepicker",
-    "ionic", 
+    "ionic",
     "datepicker",
     "datepicker for ionic",
     "datepicker for ionic framework"
