@@ -1,7 +1,8 @@
 {
-  "name": "ionic-datepicker-sfdc",
-  "version": "0.0.7",
+  "name": "ionic-datepicker-lightning",
+  "version": "1.0.0",
   "authors": [
+    "rajeshwarpatlolla <rajeshwar.patlolla@gmail.com>",
     "simon xiao <shawn.lnd.sp@gmail.com>"
   ],
   "description": "A date picker for ionic framework",
@@ -16,7 +17,7 @@
     "datepicker for ionic framework"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/MessShawn",
+  "homepage": "https://github.com/ITBconsult",
   "ignore": [
     "**/.*",
     "node_modules",
